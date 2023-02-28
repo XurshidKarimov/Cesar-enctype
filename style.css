@@ -1,0 +1,12 @@
+.product-item__desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* 
+.container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+} */
