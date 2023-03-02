@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["index.html", "indx.js"],
+  content: ["index.html", "index.js"],
   theme: {
     container: {
       center: true,
@@ -10,7 +10,10 @@ module.exports = {
         gridWrap: "repeat(auto-fill, minmax(305px, 1fr))",
       },
     },
-    plugins: [],
-    darkMode: "class",
+    plugins: [require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/aspect-ratio'),],
+    darkMode: 'class',
   }
 }
