@@ -1,15 +1,7 @@
 'use strict';
 
-let enteringArea = document.getElementById("entering"),
-    resultArea = document.getElementById("result"),
-    startButton = document.getElementById("start"),
-    stepInput = document.getElementById("stepInput"),
-    darkMode = document.getElementById("darkMode"),
-    [html] = document.getElementsByTagName("html"),
-    copyBtn = document.getElementById("copyBTN"),
+let [html] = document.getElementsByTagName("html"),
     step = null;
-
-
 
 if (localStorage.getItem("theme") === "dark") {
     html.classList.add("dark");
@@ -19,7 +11,6 @@ else {
     html.classList.remove("dark");
     darkMode.innerText = "Dark mode";
 }
-
 
 //enctype
 function replacer(match, offset, string) {
@@ -51,7 +42,7 @@ darkMode.addEventListener("click", (event) => {
     }
 })
 
-startButton.addEventListener("click", (event) => {
+lockStepInput.addEventListener("click", (event) => {
     step = stepInput.value;
     if (event.target.dataset.type === "enctype") {
         event.target.innerText = "Restep";
@@ -65,18 +56,18 @@ startButton.addEventListener("click", (event) => {
     }
 })
 
-enteringArea.addEventListener("input", () => {
-    let textForEncrypt = enteringArea.innerText;
-    resultArea.textContent = textForEncrypt.replace(/[a-z]/gi, replacer);
+entering.addEventListener("input", () => {
+    let textForEncrypt = entering.innerText;
+    result.textContent = textForEncrypt.replace(/[a-z]/gi, replacer);
 })
 
 result.addEventListener("copy", (event) => {
     event.preventDefault();
 })
 
-copyBtn.addEventListener("click", (event) => {
+copyBTN.addEventListener("click", (event) => {
     event.target.classList.add("after:animate-fade");
-    navigator.clipboard.writeText(resultArea.innerText);
+    navigator.clipboard.writeText(result.innerText);
     setInterval(() => {
         event.target.classList.remove("after:animate-fade");
     }, 900);
