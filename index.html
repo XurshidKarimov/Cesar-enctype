@@ -13,7 +13,7 @@
     <section>
         <div class="container max-w-2xl px-4">
             <div class="content flex flex-col gap-y-5 p-5">
-                <button id="darkMode" class="w-fit ring-1 p-2 rounded-md transition linear duration-300 dark:bg-zinc-800 dark:text-white" data-mode="dark">Dark mode</button>
+                <button id="darkMode" class="w-fit ring-1 p-2 rounded-md transition linear duration-300 dark:bg-zinc-800 dark:text-white">Dark mode</button>
                 <div class="flex gap-x-4">
                     <input id="stepInput" class="w-1/12 px-1 ring-1 outline-none rounded-md transition linear duration-300 dark:bg-zinc-800 dark:text-white" type="number" max="26">
                     <button id="start" class="ring-1 p-2 rounded-md linear duration-300 dark:bg-zinc-800 dark:text-white" data-type="enctype">Enctype</button>
@@ -21,7 +21,7 @@
                 <div class="active-block flex flex-col gap-y-5">
                     <p class="min-h-[200px] px-2 ring-1 outline-none rounded-sm transition linear duration-300 dark:bg-zinc-800 dark:text-white" id="entering" contenteditable="true" autofocus></p>
                     <p class="min-h-[200px] px-2 ring-1 rounded-sm transition linear duration-300 dark:bg-zinc-800 dark:text-white" id="result" disabled></p>
-                    <button class="relative w-fit ring-1 p-2 rounded-md transition linear duration-300 after:content-[attr(data-copy)] after:absolute after:bottom-9 after:right-[-35px] after:flex after:items-center after:justify-center after:bg-zinc-900 after:text-white after:rounded-md after:w-fit after:p-2 after:opacity-0 dark:bg-zinc-800 dark:text-white" data-copy="Copied">Copy to clipboard</button>
+                    <button id="copyBTN" class="relative w-fit ring-1 p-2 rounded-md transition linear duration-300 after:content-[attr(data-copy)] after:absolute after:bottom-9 after:right-[-35px] after:flex after:items-center after:justify-center after:bg-zinc-900 after:text-white after:rounded-md after:w-fit after:p-2 after:opacity-0 dark:bg-zinc-800 dark:text-white" data-copy="Copied">Copy to clipboard</button>
                 </div>
                
             </div>

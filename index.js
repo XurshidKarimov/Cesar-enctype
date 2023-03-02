@@ -6,7 +6,20 @@ let enteringArea = document.getElementById("entering"),
     stepInput = document.getElementById("stepInput"),
     darkMode = document.getElementById("darkMode"),
     [html] = document.getElementsByTagName("html"),
+    copyBtn = document.getElementById("copyBTN"),
     step = null;
+
+
+
+if (localStorage.getItem("theme") === "dark") {
+    html.classList.add("dark");
+    darkMode.innerText = "Light mode";
+}
+else {
+    html.classList.remove("dark");
+    darkMode.innerText = "Dark mode";
+}
+
 
 //enctype
 function replacer(match, offset, string) {
@@ -28,13 +41,13 @@ function replacer(match, offset, string) {
 
 darkMode.addEventListener("click", (event) => {
     html.classList.toggle("dark");
-    if (event.target.dataset.mode === "dark") {
+    if (!localStorage.getItem("theme") || localStorage.getItem("theme") === "light") {
+        localStorage.setItem("theme", "dark");
         event.target.innerText = "Light mode";
-        event.target.dataset.mode = "light";
     }
     else {
+        localStorage.setItem("theme", "light");
         event.target.innerText = "Dark mode";
-        event.target.dataset.mode = "dark";
     }
 })
 
@@ -59,4 +72,12 @@ enteringArea.addEventListener("input", () => {
 
 result.addEventListener("copy", (event) => {
     event.preventDefault();
+})
+
+copyBtn.addEventListener("click", (event) => {
+    event.target.classList.add("after:animate-fade");
+    navigator.clipboard.writeText(resultArea.innerText);
+    setInterval(() => {
+        event.target.classList.remove("after:animate-fade");
+    }, 900);
 })
